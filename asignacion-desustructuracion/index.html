@@ -11,6 +11,7 @@
 <body>
   <main class="profile">
     <div class="wrapper">
+      <button class="button" id="update">¿Cuántos años tiene Ash?</button>
       <div class="profile-content" id="user">
       </div>
     </div>
@@ -24,10 +25,30 @@
       city: 'Pueblo Paleta',
       social: [150, 160, 130, 255]
     }
+
+    function useState(initialState){
+      let value = initialState
+
+      function state(newValue){
+        return value
+      }
+
+      function setState(newValue){
+        value = newValue
+      }
+
+      return [
+        state,
+        setState,
+      ]
+    }
     
-    function User({name,lastName,avatar,bio,city,social}){
+    function User({name,lastName,avatar,bio: bio_,city,social}){
       const [twitter,facebook,instagram,tiktok] = social
-      return ` 
+      const [age,setAge] = useState(10)
+      function render(){
+        bio = bio_.replace('10', age)
+        return ` 
         <div class="user">
             <img src="${avatar}" alt="${name}" width="140" height="140">
             <div class="details">
@@ -56,8 +77,23 @@
             </div>
           </div>
         `
+      }
+
+      return{
+        render,
+        setAge,
+      }
+      
     }
-    window.user.innerHTML = User(user)
+
+    const ash = User(user)
+    window.update.addEventListener('click',()=>{
+      const newAge = window.prompt('¿Qué edad tiene Ash?',10)
+      ash.setAge(newAge)
+      window.user.innerHTML = ash.render()
+    })
+    window.user.innerHTML = ash.render()
+    
   </script>
 </body>
 
