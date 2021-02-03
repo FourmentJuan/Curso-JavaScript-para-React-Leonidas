@@ -4,7 +4,7 @@ body {
   background-color: white;
   text-align: center;
   min-height: 100vh;
-  background: repeating-linear-gradient(-225deg, #d0d6f6, #d0d6f6 20px, white 20px, white 40px,#fdd1d0 40px, #fdd1d0 60px, white 60px, white 80px);
+  background: repeating-linear-gradient(-225deg, #a1f1c8, #a1f1c8 20px, white 20px, white 40px,#fdd1d0 40px, #fdd1d0 60px, white 60px, white 80px);
 }
 .wrapper {
   max-width: 1020px;
