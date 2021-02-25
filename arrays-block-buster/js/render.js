@@ -28,3 +28,8 @@ export default function renderMovieList(list){
     list.forEach(renderElement)
   });
 }
+
+export function renderMovieListFromMap(list,map) {
+  cleanMovieList();
+  list.forEach(movieId=> renderElement(map.get(movieId)))
+}
