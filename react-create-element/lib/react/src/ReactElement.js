@@ -17,7 +17,7 @@ function setProperties(prop,value,element) {
 
 
   //support for children
-  if (prop === "children") {
+  if (prop === 'children') {
     renderChildren(value, element);
   }
 
@@ -39,8 +39,7 @@ export function createElement(type, props, content) {
     element.textContent = content
   }
   //Propiedades
-  if(props)
-  {
+  if (props) {
     Object.keys(props).forEach((prop) =>
       setProperties(prop, props[prop], element)
     )
