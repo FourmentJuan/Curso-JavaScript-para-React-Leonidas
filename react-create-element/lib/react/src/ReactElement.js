@@ -1,4 +1,4 @@
-import {render} from '../../../react-dom.js'
+import {render} from '../../react-dom.js'
 
 function renderChildren(children,container) {
   if(Array.isArray(children)){
@@ -18,7 +18,7 @@ function setProperties(prop,value,element) {
 
   //support for children
   if (prop === 'children') {
-    renderChildren(value, element);
+    return renderChildren(value, element);
   }
 
   //support for attributes
