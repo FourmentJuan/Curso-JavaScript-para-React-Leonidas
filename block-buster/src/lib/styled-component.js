@@ -12,7 +12,8 @@ const elements = [
   'form',
   'input',
   'button',
-  'select'
+  'select',
+  'section'
 ]
 
 function buildStyles(strings,dynamicValues,props){
