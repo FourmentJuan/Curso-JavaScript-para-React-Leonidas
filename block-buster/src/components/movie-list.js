@@ -22,17 +22,31 @@ class MovieList extends Component{
   }
 
   getPage = async (page) => {
-    const {results} = await api.moviePage(10)
+    const {results} = await api.moviePage(page)
     store.dispatch({
       type: ADD_MOVIES,
       payload:results
     })
+  }
+  handleIntersection = (entries) => {
+    console.log(entries)
+    if(entries[0].isIntersecting){
+      this.getPage(this.state.page)
+      this.setState({
+        page: this.state.page + 1
+      })
+      console.log('traer nueva pagina')
+    }
   }
   async componentDidMount(){
     this.getPage(this.state.page)
     store.subscribe(()=>{
       this.setState()
     })
+    //Hay una clase en el canal que explica mas de 
+    //intersection observer
+    const observer = new IntersectionObserver(this.handleIntersection)
+    observer.observe(intersector)
   }
   render(){
     const state = store.getState()

@@ -19,7 +19,7 @@ function getMostValuedIds(list,oldList = []){
   },oldList);
 } 
 
-function getLeastValuedIds(list) {
+function getLeastValuedIds(list, oldList = []) {
   return list.reduce((list, movie) => {
     if (movie.vote_average <= 7) {
       list.push(movie.id);
