@@ -1,4 +1,4 @@
-import { API_KEY} from './constants.js'
+import { API_KEY } from "./constants.js";
 
 class API{
 
@@ -20,4 +20,4 @@ class API{
 
 }
 
-export default new API()
+export default new API(API_KEY);
